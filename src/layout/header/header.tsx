@@ -2,24 +2,27 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
+import Link from 'next/link';
+
+import { Container } from 'src/shared/components/container';
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Dashboard', href: '/', current: true },
+  { name: 'Team', href: '/team', current: false },
+  { name: 'Projects', href: '/projects', current: false },
+  { name: 'Calendar', href: '/calendar', current: false },
 ]
 
 function getClassNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
-export const Header = () => {
+const Header = () => {
   return (
-    <Disclosure as="nav" className="bg-white">
+    <Disclosure as="nav" className="bg-white fixed w-full z-50">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <Container>
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -46,7 +49,7 @@ export const Header = () => {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className={getClassNames(
@@ -54,9 +57,10 @@ export const Header = () => {
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
+                        onClick={() => {}}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -127,17 +131,17 @@ export const Header = () => {
                 </Menu>
               </div>
             </div>
-          </div>
+          </Container>
 
-          <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pt-2 pb-3">
+          <Disclosure.Panel className="absolute sm:hidden z-10 w-full">
+            <div className="space-y-1 px-2 pt-2 pb-3 bg-gray-50">
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
                   as="a"
                   href={item.href}
                   className={getClassNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    item.current ? 'bg-gray-900 text-white' : 'text-gray-600 hover:bg-gray-600 hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}
@@ -152,3 +156,5 @@ export const Header = () => {
     </Disclosure>
   )
 }
+
+export default Header;
