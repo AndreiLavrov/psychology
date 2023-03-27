@@ -10,7 +10,9 @@ const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <div className="relative min-h-screen bg">
       <Header />
-      {children}
+      <div className="pt-16">
+        {children}
+      </div>
     </div>
   );
 };
