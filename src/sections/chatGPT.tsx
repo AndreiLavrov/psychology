@@ -1,9 +1,13 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { serveLocalStorage } from 'src/services/serveLocalStorage';
 
+type IInitialState = any[];
+
+const initialState: IInitialState = [];
+
 export default function ChatGPT() {
   const [loading, setLoading] = useState(false);
-  const [state, setState] = useState([]);
+  const [state, setState] = useState(initialState);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -13,7 +17,6 @@ export default function ChatGPT() {
     const res = await fetch(`/api/get-ai-response?question=${question}`);
     const data = await res.json();
     const newState = [data.choices[0].text.trim().split('|'), question, ...state];
-    // @ts-ignore
     setState(newState);
     setLoading(false);
 

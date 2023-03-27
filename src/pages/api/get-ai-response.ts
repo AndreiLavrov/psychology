@@ -18,12 +18,7 @@ export default async function handler(
     });
     console.log(completion.data.choices[0].text);
     res.status(200).json(completion.data);
-  } catch (error) {
-    if (error.response) {
-      console.log(error.response.status);
-      console.log(error.response.data);
-    } else {
-      console.log(error.message);
-    }
+  } catch (error: unknown) {
+    console.error(error);
   }
 }
