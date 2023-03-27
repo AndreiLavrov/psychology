@@ -31,10 +31,11 @@ export default function Home() {
 
             <article
               className="font-medium text-5xl flex flex-col items-center justify-center mx-auto py-20 max-w-3xl xl:max-w-5xl">
-              <h1 className="font-medium text-2xl sm:text-3xl xl:text-5xl">инь и янь. баланс нужен во всем. мы помогаем
+              <h1 className="font-medium text-center text-2xl sm:text-3xl xl:text-5xl">инь и янь. баланс нужен во всем. мы помогаем
                 наити баланс в Вашей жизни и счастливо идти вперед</h1>
 
-              <h4 className="font-medium mt-40 m-3 text-l sm:text-xl xl:text-2xl">мы использцем <a href="">ChatGPT</a>.
+              <h4 className="font-medium text-center mt-40 m-3 text-l sm:text-xl xl:text-2xl">
+                мы использцем <a href="https://platform.openai.com/overview" className="text-gray-200">ChatGPT</a>.
                 Здесь
                 вы можете пообщаться с искусственным интиллектом</h4>
               <Link
