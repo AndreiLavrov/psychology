@@ -8,7 +8,7 @@ import { Container } from 'src/shared/components/container';
 
 const navigation = [
   { name: 'Dashboard', href: '/', current: true },
-  { name: 'Team', href: '/team', current: false },
+  { name: 'Team', href: '/team/maryna-laurova', current: false },
   { name: 'Projects', href: '/projects', current: false },
   { name: 'Chat', href: '/chat', current: false },
   { name: 'Calendar', href: '/calendar', current: false },

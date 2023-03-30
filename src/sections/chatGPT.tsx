@@ -51,13 +51,22 @@ export default function ChatGPT() {
 
         <button
           type="submit"
-          className="mt-5 w-1/2 mx-auto flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          className="mt-5 w-1/2 mx-auto flex w-full justify-center rounded-md border border-transparent bg-slate-900 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
           Отправить вопрос
         </button>
       </form>
 
-      <div className="text-white m-3">{loading ? 'Думает...' : ''}</div>
+      <div className="relative">
+        {loading && (
+          <div className="absolute flex items-center -mt-20">
+            <span className="mr-3">Думает...</span>
+            <div
+              className="text-white m-3 mx-auto inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+              role="status" />
+          </div>
+        )}
+      </div>
 
       {state.length > 0 && state.map((tag, index) => (
         <div
