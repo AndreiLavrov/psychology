@@ -11,7 +11,7 @@ export default function HowItWorks() {
       <div
         className="my-8"
       >
-        <h2>Как это работает:</h2>
+        <h2 className="inline-flex text-3xl font-bold my-6">Как это работает:</h2>
         <ol className="relative text-gray-500 border-l border-gray-200 dark:border-gray-700 dark:text-gray-400">
 
           <li className="mb-10 ml-6">
